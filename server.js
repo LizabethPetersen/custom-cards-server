@@ -8,8 +8,9 @@ const superagent = require('superagent');
 
 const PORT = process.env.PORT;
 const G_API_KEY = process.env.G_API_KEY;
+const conString = 'postgres://localhost:5432/cards';
 console.log(G_API_KEY);
-const client = new pg.Client(process.env.DATABASE_URL);
+const client = new pg.Client(process.env.DATABASE_URL || conString);
 client.connect();
 
 app.use(cors());
